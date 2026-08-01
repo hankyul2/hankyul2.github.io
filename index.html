@@ -191,6 +191,11 @@
 
   a.ico + a.ico { margin-left: 4px; }
 
+  /* below this width the text column needs to grow past the figure */
+  @media (max-width: 900px) {
+    .pub .body { max-height: none; }
+  }
+
   @media (max-width: 680px) {
     body { padding: 44px 20px 80px; }
     header { flex-direction: column; gap: 20px; }
@@ -374,11 +379,10 @@
 
 <section id="preprints">
   <h2>Preprints and Manuscripts under Review</h2>
-  <p class="note" style="font-style: italic;">* denotes co-first authorship.</p>
   <div class="pub" id="p-lema">
     <img src="images/lema.png" alt="Conceptual illustration of the QLoRA learning trajectory drifting away from the stable optimal region">
     <div class="body">
-      <div class="meta"><span class="tag">[S.5]</span> Eunju Sin*, <span class="me">Hankyul Kang</span>*, and Jongbin Ryu. Don't Overlook Learning Trajectories of LoRA Adapters on Quantized LLMs.<br><span class="venue">Under review, 2026</span></div>
+      <div class="meta"><span class="tag">[S.5]</span> Anonymous Authors. An Empirical Study on Learning Trajectories of LoRA Adapters for Quantized Large Language Models.<br><span class="venue">Under review, 2026</span></div>
       <p class="kw">Keywords: &ldquo;quantized LLM, QLoRA, exponential moving average, low-bit low-rank fine-tuning&rdquo;</p>
     </div>
   </div>
@@ -387,7 +391,7 @@
   <div class="pub" id="p-svq">
     <img src="images/svq.png" alt="Sequential pruning-then-quantization compared with differentiable bit-width co-optimization">
     <div class="body">
-      <div class="meta"><span class="tag">[S.4]</span> <span class="me">Hankyul Kang</span> and Jongbin Ryu. Differentiable Bit-Widths: Co-Optimizing Pruning and Quantization via SVD for Ultra-Efficient LLM Compression.<br><span class="venue">Under review, 2026</span></div>
+      <div class="meta"><span class="tag">[S.4]</span> Anonymous Authors. Co-Optimizing Pruning and Quantization via Singular Value Decomposition for Efficient LLM Compression.<br><span class="venue">Under review, 2026</span></div>
       <p class="kw">Keywords: &ldquo;LLM compression, pruning, quantization, differentiable bit-width, ultra-low-bit memory footprint, batch-size agnostic throughput gain&rdquo;</p>
     </div>
   </div>
@@ -395,7 +399,7 @@
   <div class="pub" id="p-aux">
     <img src="images/auxiliary.png" alt="Decision boundaries with and without auxiliary out-of-distribution samples across continual learning tasks">
     <div class="body">
-      <div class="meta"><span class="tag">[S.3]</span> Gregor Seifer*, <span class="me">Hankyul Kang</span>*, Donghyun Kim, and Jongbin Ryu. Leveraging Auxiliary Datasets as Neutral Cases for Robust Decision Boundaries in Continual Learning.<br><span class="venue">Under review, 2026</span></div>
+      <div class="meta"><span class="tag">[S.3]</span> Anonymous Authors. Utilizing Auxiliary Datasets for Robust Decision Boundaries in Continual Learning Scenarios.<br><span class="venue">Under review, 2026</span></div>
       <p class="kw">Keywords: &ldquo;continual learning, decision boundary, out-of-distribution data, long-term memory&rdquo;</p>
     </div>
   </div>
@@ -403,7 +407,7 @@
   <div class="pub" id="p-plugdec">
     <img src="images/plugdec.png" alt="Accuracy versus runtime across four devices for slimmable networks">
     <div class="body">
-      <div class="meta"><span class="tag">[S.2]</span> <span class="me">Hankyul Kang</span>, Eunju Sin, and Jongbin Ryu. Pluggable Decoder for Slimmable Neural Networks.<br><span class="venue">Under review, 2025</span></div>
+      <div class="meta"><span class="tag">[S.2]</span> Anonymous Authors. Pluggable Decoder for Slimmable Neural Networks.<br><span class="venue">Under review, 2025</span></div>
       <p class="kw">Keywords: &ldquo;slimmable networks, layer slimming, pluggable decoder, on-device inference, heterogeneous devices, mobile accelerators, inference latency, training time&rdquo;</p>
     </div>
   </div>
