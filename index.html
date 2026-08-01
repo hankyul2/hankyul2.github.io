@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hankyul Kang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fs: 16px;
+    --ink: #000;
+    --rule: #d9d9d9;
+    --link: #c2185b;      /* pink */
+    --tag: #1a73c7;       /* CVPR blue */
+  }
+
+  * { box-sizing: border-box; }
+
+  html { background: #fff; }
+
+  body {
+    margin: 0 auto;
+    padding: 72px 28px 120px;
+    max-width: 980px;
+    background: #fff;
+    color: var(--ink);
+    font-family: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: var(--fs);
+    font-weight: 400;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* every text element shares one size and one weight */
+  h1, h2, p, li, a, span, div {
+    font-size: var(--fs);
+    font-weight: 400;
+    line-height: 1.75;
+  }
+
+  h1, h2 { margin: 0; }
+
+  a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+  }
+
+  a:hover { text-decoration-color: #d59ab4; }
+
+  /* ---------- header ---------- */
+
+  header {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    padding-bottom: 28px;
+  }
+
+  .photo {
+    flex: 0 0 132px;
+    height: 168px;
+    border: 1px solid var(--rule);
+  }
+
+  /* photo file: site/images/profile.jpg */
+  img.photo {
+    object-fit: cover;
+    object-position: 50% 26%;   /* frame the face, not the poster */
+  }
+
+  .idline { margin-top: 2px; }
+
+  /* ---------- sections ---------- */
+
+  section { margin-top: 44px; }
+
+  section > h2 {
+    padding-bottom: 6px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--ink);
+    font-weight: 600;
+  }
+
+  p { margin: 0 0 14px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ---------- lists ---------- */
+
+  ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  li { margin-bottom: 10px; }
+  li:last-child { margin-bottom: 0; }
+
+  li ul { margin-top: 6px; }
+
+  /* dated entries: period | content, split by a rule */
+  ul.dated { list-style: none; padding-left: 0; }
+
+  ul.dated > li {
+    display: grid;
+    grid-template-columns: 21ch 1fr;
+    margin-bottom: 14px;
+  }
+
+  ul.dated .when { color: #555; }
+
+  ul.dated .what {
+    border-left: 1px solid var(--rule);
+    padding-left: 16px;
+  }
+
+  ul.dated .what ul { margin-top: 4px; padding-left: 18px; }
+
+  /* News dates are short, so the rule sits closer in */
+  #news ul.dated > li { grid-template-columns: 10ch 1fr; }
+
+  li li { margin-bottom: 2px; color: #555; font-style: italic; }   /* detail lines */
+
+  .note { color: #555; }
+
+  .legend { margin-top: 14px; font-style: italic; }
+
+  .tag { white-space: nowrap; color: var(--tag); }
+
+  a[href^="#"] { color: var(--tag); }        /* paper / project tags */
+
+  .pub:last-child { border-bottom: none; padding-bottom: 4px; }
+
+  /* jump targets */
+  :target { scroll-margin-top: 28px; }
+
+  .pub:target { background: #f4f4f4; }
+
+  span.tag:target {
+    background: #f4f4f4;
+    outline: 4px solid #f4f4f4;
+  }
+
+  /* ---------- publications ---------- */
+
+  .pub {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 24px;
+    align-items: start;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .pub:first-of-type { padding-top: 4px; }
+
+  /* every figure occupies the same box; sources are pre-fitted to 960x740 */
+  .pub img {
+    width: 240px;
+    height: 185px;
+    display: block;
+    border: 1px solid var(--rule);
+  }
+
+  /* the text column is capped at the figure height */
+  .pub .body {
+    max-height: 185px;
+    overflow: hidden;
+  }
+
+  .pub .body p, .pub .body div, .pub .body span, .pub .body a { line-height: 1.5; }
+
+  .pub .meta { margin-bottom: 8px; }
+
+  .venue { color: #555; }
+
+  .pub .me, b { font-weight: 600; }
+
+  .kw { color: #555; font-style: italic; }
+
+  em { font-style: italic; font-weight: 400; }
+
+  a.ico {
+    display: inline-block;
+    vertical-align: -2px;
+    text-decoration: none;
+    color: var(--link);
+  }
+
+  a.ico + a.ico { margin-left: 4px; }
+
+  @media (max-width: 680px) {
+    body { padding: 44px 20px 80px; }
+    header { flex-direction: column; gap: 20px; }
+    .pub { grid-template-columns: 1fr; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="photo" src="images/profile.jpg" alt="Hankyul Kang">
+  <div>
+    <h1>Hankyul Kang</h1>
+    <div class="idline">Ph.D. Candidate, Department of Artificial Intelligence</div>
+    <div>Ajou University, Suwon, Korea</div>
+    <div><a href="mailto:hankyulkang1997@gmail.com">hankyulkang1997@gmail.com</a></div>
+    <div>
+      <a href="https://scholar.google.com/citations?user=k1ju5YIAAAAJ&amp;hl=en">Google Scholar</a> ·
+      <a href="https://hankyul2.github.io/">hankyul2.github.io</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <h2>About</h2>
+  <p>I am Hankyul Kang, a Ph.D. candidate in the Department of Artificial Intelligence at Ajou University in Suwon, Korea, where I am advised by <a href="https://sites.google.com/view/jongbinryu/about-me">Prof. Jongbin Ryu</a> in the <a href="https://sites.google.com/view/ajoucilab">Computational Intelligence Lab</a>. I joined the lab in January 2021 as an undergraduate researcher and have stayed there since, moving into the doctoral program in March 2022.</p>
+</section>
+
+<section id="interests">
+  <p>I am interested in advancing the frontiers of state-of-the-art algorithms to achieve breakthrough performance. My expertise lies in improving efficiency through architectures, compression, and learning algorithms for vision models and large language models. My work spans four directions:</p>
+  <ul>
+    <li><b>Efficient architecture</b>: linear attention <a href="#p-imhsa">[S.1]</a> and multi-token attention <a href="#p-map">[C.1]</a>.</li>
+    <li><b>Model compression</b>: quantization and pruning <a href="#p-svq">[S.4]</a>, and slimmable networks <a href="#p-plugdec">[S.2]</a>.</li>
+    <li><b>On-device learning</b>: continual learning <a href="#p-respacing">[C.2]</a> <a href="#p-aux">[S.3]</a>, and resource-efficient fine-tuning <a href="#p-lema">[S.5]</a>.</li>
+    <li><b>AI applications</b>: medical imaging <a href="#p-adnet">[J.1]</a> <a href="#p-p2">[P.2]</a> <a href="#p-p4">[P.4]</a>, and face recognition <a href="#p-p1">[P.1]</a> <a href="#p-p3">[P.3]</a>.</li>
+  </ul>
+  <p class="note legend">C: conference paper · J: journal paper · S: submission or preprint · P: project</p>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <ul class="dated">
+    <li>
+      <div class="when">Mar 2022 – present</div>
+      <div class="what"><em>Ph.D. Candidate</em> in Artificial Intelligence, Ajou University, Korea<div class="note">Advisor: Prof. Jongbin Ryu</div></div>
+    </li>
+    <li>
+      <div class="when">Mar 2016 – Feb 2022</div>
+      <div class="what"><em>B.S.</em> in Software and Computer Engineering, Ajou University, Korea<div class="note">GPA 4.3 / 4.5, top 3% of the department</div></div>
+    </li>
+    <li>
+      <div class="when">Feb 2018 – Jul 2018</div>
+      <div class="what"><em>Exchange Student</em> in Computer Engineering, Technical University of Denmark, Denmark</div>
+    </li>
+  </ul>
+</section>
+
+<section id="work">
+  <h2>Research Experience</h2>
+  <ul class="dated">
+    <li>
+      <div class="when">Jan 2021 – present</div>
+      <div class="what"><em>Student Researcher</em>, <a href="https://sites.google.com/view/ajoucilab">Computational Intelligence Lab</a>, Ajou University, Korea</div>
+    </li>
+    <li>
+      <div class="when">Jul 2020 – Aug 2020</div>
+      <div class="what"><em>Student Research Intern</em>, <a href="https://company.ggq.gg/">GGQ Company Inc.</a>, Korea</div>
+    </li>
+  </ul>
+</section>
+
+<section id="news">
+  <h2>News</h2>
+  <ul class="dated">
+    <li>
+      <div class="when">Aug 2026</div>
+      <div class="what">Serve as a reviewer for BMVC 2026.</div>
+    </li>
+    <li>
+      <div class="when">Jun 2026</div>
+      <div class="what">Serve as a reviewer for NeurIPS 2026.</div>
+    </li>
+    <li>
+      <div class="when">Apr 2026</div>
+      <div class="what">Serve as a reviewer for ECCV 2026.</div>
+    </li>
+    <li>
+      <div class="when">Dec 2025</div>
+      <div class="what">Serve as a reviewer for CVPR 2026.</div>
+    </li>
+    <li>
+      <div class="when">Sep 2025</div>
+      <div class="what">Awarded the Doctoral Student Research Encouragement Grant!
+        <ul>
+          <li>Funder: National Research Foundation of Korea</li>
+          <li>Project: <em>Diversifying Mixture-of-Expert Classifiers Using Entropy Maximization</em></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="when">Jun 2025</div>
+      <div class="what">Won the <a href="https://lpcv.ai/2025LPCVC/winners/">IEEE Low-Power Computer Vision Challenge</a>!
+        <ul>
+          <li>Host: Qualcomm, IEEE, CVF, and Purdue University</li>
+          <li>Entry: <em>Layer Imitation: Efficient Vision-Language Model on the Mobile NPU</em></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="when">Feb 2025</div>
+      <div class="what">One paper accepted to CVPR 2025!
+        <ul>
+          <li>Paper: <em>Do Your Best and Get Enough Rest for Continual Learning</em> <a href="#p-respacing">[C.2]</a></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="when">Oct 2024</div>
+      <div class="what">One paper accepted to WACV 2025!
+        <ul>
+          <li>Paper: <em>Enriching Local Patterns with Multi-Token Attention for Broad-Sight Neural Networks</em> <a href="#p-map">[C.1]</a></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="when">Apr 2024</div>
+      <div class="what">One paper accepted to Computer Methods and Programs in Biomedicine!
+        <ul>
+          <li>Paper: <em>Attentional Decoder Networks for Chest X-Ray Image Recognition on High-Resolution Features</em> <a href="#p-adnet">[J.1]</a></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="when">Oct 2022</div>
+      <div class="what">Awarded the Collaborative Medical AI Research Grant!
+        <ul>
+          <li>Funder: Ministry of Health and Welfare</li>
+          <li>Project: <em>Translation-Invariant Chest X-Ray Recognition Using Frequency Analysis</em></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="when">Jul 2021</div>
+      <div class="what">Received the Best Student Paper Award!
+        <ul>
+          <li>Host: Korean Digital Content Society</li>
+          <li>Paper: <em>Lightweight Video Search Using Video-to-Text Generation and Retrieval</em></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</section>
+
+
+<section id="publications">
+  <h2>Publications</h2>
+  <div class="pub" id="p-respacing">
+    <img src="images/respacing.png" alt="Forgetting curves for short-term, optimal, and long-term recall intervals">
+    <div class="body">
+      <div class="meta"><span class="tag">[C.2]</span> <span class="me">Hankyul Kang</span>, Gregor Seifer, Donghyun Lee, and Jongbin Ryu. <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Kang_Do_Your_Best_and_Get_Enough_Rest_for_Continual_Learning_CVPR_2025_paper.pdf">Do Your Best and Get Enough Rest for Continual Learning</a>.<br><span class="venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025</span> <a class="ico" href="https://openaccess.thecvf.com/content/CVPR2025/papers/Kang_Do_Your_Best_and_Get_Enough_Rest_for_Continual_Learning_CVPR_2025_paper.pdf" title="PDF" aria-label="PDF"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" d="M3.2 1.7h6.1l3.5 3.5v9.1H3.2z"/><path fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" d="M9.3 1.7v3.5h3.5"/><path fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" d="M5.4 8.4h5.2M5.4 11h5.2"/></svg></a> <a class="ico" href="https://github.com/hankyul2/ViewBatchModel" title="Code" aria-label="Code"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M8 .5a7.5 7.5 0 0 0-2.37 14.62c.37.07.51-.16.51-.36v-1.3c-2.09.45-2.53-1-2.53-1-.34-.87-.83-1.1-.83-1.1-.68-.47.05-.46.05-.46.75.05 1.15.77 1.15.77.67 1.15 1.76.82 2.19.63.07-.49.26-.82.47-1.01-1.67-.19-3.430-.84-3.43-3.71 0-.82.29-1.49.77-2.02-.08-.19-.34-.95.07-1.98 0 0 .63-.2 2.06.77a7.1 7.1 0 0 1 3.75 0c1.43-.97 2.06-.77 2.06-.77.41 1.03.15 1.79.07 1.98.48.53.77 1.2.77 2.02 0 2.88-1.76 3.51-3.44 3.7.27.23.51.69.51 1.39v2.06c0 .2.13.44.51.36A7.5 7.5 0 0 0 8 .5z"/></svg></a></div>
+      <p class="kw">Keywords: &ldquo;continual learning, forgetting curve, recall interval, long-term memory&rdquo;</p>
+    </div>
+  </div>
+
+  <div class="pub" id="p-map">
+    <img src="images/map.png" alt="Multi-token attention pooling with inter- and intra-group distillation across two token branches">
+    <div class="body">
+      <div class="meta"><span class="tag">[C.1]</span> <span class="me">Hankyul Kang</span> and Jongbin Ryu. <a href="https://openaccess.thecvf.com/content/WACV2025/papers/Kang_Enriching_Local_Patterns_with_Multi-Token_Attention_for_Broad-Sight_Neural_Networks_WACV_2025_paper.pdf">Enriching Local Patterns with Multi-Token Attention for Broad-Sight Neural Networks</a>.<br><span class="venue">IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2025</span> <a class="ico" href="https://openaccess.thecvf.com/content/WACV2025/papers/Kang_Enriching_Local_Patterns_with_Multi-Token_Attention_for_Broad-Sight_Neural_Networks_WACV_2025_paper.pdf" title="PDF" aria-label="PDF"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" d="M3.2 1.7h6.1l3.5 3.5v9.1H3.2z"/><path fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" d="M9.3 1.7v3.5h3.5"/><path fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" d="M5.4 8.4h5.2M5.4 11h5.2"/></svg></a> <a class="ico" href="https://github.com/Lab-LVM/imagenet-models" title="Code" aria-label="Code"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M8 .5a7.5 7.5 0 0 0-2.37 14.62c.37.07.51-.16.51-.36v-1.3c-2.09.45-2.53-1-2.53-1-.34-.87-.83-1.1-.83-1.1-.68-.47.05-.46.05-.46.75.05 1.15.77 1.15.77.67 1.15 1.76.82 2.19.63.07-.49.26-.82.47-1.01-1.67-.19-3.430-.84-3.43-3.71 0-.82.29-1.49.77-2.02-.08-.19-.34-.95.07-1.98 0 0 .63-.2 2.06.77a7.1 7.1 0 0 1 3.75 0c1.43-.97 2.06-.77 2.06-.77.41 1.03.15 1.79.07 1.98.48.53.77 1.2.77 2.02 0 2.88-1.76 3.51-3.44 3.7.27.23.51.69.51 1.39v2.06c0 .2.13.44.51.36A7.5 7.5 0 0 0 8 .5z"/></svg></a></div>
+      <p class="kw">Keywords: &ldquo;global average pooling, multi-token attention, attention pooling, high throughput network, low parameter overhead&rdquo;</p>
+    </div>
+  </div>
+
+  <div class="pub" id="p-adnet">
+    <img src="images/adnet.png" alt="U-Net with a deconvolution decoder compared with ADNet's attentional decoder and harmonic pooling">
+    <div class="body">
+      <div class="meta"><span class="tag">[J.1]</span> <span class="me">Hankyul Kang</span>, Namkug Kim, and Jongbin Ryu. <a href="https://doi.org/10.1016/j.cmpb.2024.108198">Attentional Decoder Networks for Chest X-Ray Image Recognition on High-Resolution Features</a>.<br><span class="venue">Computer Methods and Programs in Biomedicine, 2024</span> <a class="ico" href="https://doi.org/10.1016/j.cmpb.2024.108198" title="PDF" aria-label="PDF"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" d="M3.2 1.7h6.1l3.5 3.5v9.1H3.2z"/><path fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" d="M9.3 1.7v3.5h3.5"/><path fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" d="M5.4 8.4h5.2M5.4 11h5.2"/></svg></a> <a class="ico" href="https://github.com/Lab-LVM/ADNet" title="Code" aria-label="Code"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M8 .5a7.5 7.5 0 0 0-2.37 14.62c.37.07.51-.16.51-.36v-1.3c-2.09.45-2.53-1-2.53-1-.34-.87-.83-1.1-.83-1.1-.68-.47.05-.46.05-.46.75.05 1.15.77 1.15.77.67 1.15 1.76.82 2.19.63.07-.49.26-.82.47-1.01-1.67-.19-3.430-.84-3.43-3.71 0-.82.29-1.49.77-2.02-.08-.19-.34-.95.07-1.98 0 0 .63-.2 2.06.77a7.1 7.1 0 0 1 3.75 0c1.43-.97 2.06-.77 2.06-.77.41 1.03.15 1.79.07 1.98.48.53.77 1.2.77 2.02 0 2.88-1.76 3.51-3.44 3.7.27.23.51.69.51 1.39v2.06c0 .2.13.44.51.36A7.5 7.5 0 0 0 8 .5z"/></svg></a></div>
+      <p class="kw">Keywords: &ldquo;chest X-ray recognition, encoder-decoder, attentional upsampling, resource efficient fine-tuning&rdquo;</p>
+    </div>
+  </div>
+</section>
+
+<section id="preprints">
+  <h2>Preprints and Manuscripts under Review</h2>
+  <p class="note" style="font-style: italic;">* denotes co-first authorship.</p>
+  <div class="pub" id="p-lema">
+    <img src="images/lema.png" alt="Conceptual illustration of the QLoRA learning trajectory drifting away from the stable optimal region">
+    <div class="body">
+      <div class="meta"><span class="tag">[S.5]</span> Eunju Sin*, <span class="me">Hankyul Kang</span>*, and Jongbin Ryu. Don't Overlook Learning Trajectories of LoRA Adapters on Quantized LLMs.<br><span class="venue">Under review, 2026</span></div>
+      <p class="kw">Keywords: &ldquo;quantized LLM, QLoRA, exponential moving average, low-bit low-rank fine-tuning&rdquo;</p>
+    </div>
+  </div>
+
+  
+  <div class="pub" id="p-svq">
+    <img src="images/svq.png" alt="Sequential pruning-then-quantization compared with differentiable bit-width co-optimization">
+    <div class="body">
+      <div class="meta"><span class="tag">[S.4]</span> <span class="me">Hankyul Kang</span> and Jongbin Ryu. Differentiable Bit-Widths: Co-Optimizing Pruning and Quantization via SVD for Ultra-Efficient LLM Compression.<br><span class="venue">Under review, 2026</span></div>
+      <p class="kw">Keywords: &ldquo;LLM compression, pruning, quantization, differentiable bit-width, ultra-low-bit memory footprint, batch-size agnostic throughput gain&rdquo;</p>
+    </div>
+  </div>
+
+  <div class="pub" id="p-aux">
+    <img src="images/auxiliary.png" alt="Decision boundaries with and without auxiliary out-of-distribution samples across continual learning tasks">
+    <div class="body">
+      <div class="meta"><span class="tag">[S.3]</span> Gregor Seifer*, <span class="me">Hankyul Kang</span>*, Donghyun Kim, and Jongbin Ryu. Leveraging Auxiliary Datasets as Neutral Cases for Robust Decision Boundaries in Continual Learning.<br><span class="venue">Under review, 2026</span></div>
+      <p class="kw">Keywords: &ldquo;continual learning, decision boundary, out-of-distribution data, long-term memory&rdquo;</p>
+    </div>
+  </div>
+
+  <div class="pub" id="p-plugdec">
+    <img src="images/plugdec.png" alt="Accuracy versus runtime across four devices for slimmable networks">
+    <div class="body">
+      <div class="meta"><span class="tag">[S.2]</span> <span class="me">Hankyul Kang</span>, Eunju Sin, and Jongbin Ryu. Pluggable Decoder for Slimmable Neural Networks.<br><span class="venue">Under review, 2025</span></div>
+      <p class="kw">Keywords: &ldquo;slimmable networks, layer slimming, pluggable decoder, on-device inference, heterogeneous devices, mobile accelerators, inference latency, training time&rdquo;</p>
+    </div>
+  </div>
+
+  <div class="pub" id="p-imhsa">
+    <img src="images/imhsa.png" alt="Baseline multi-head self-attention compared with decomposed and interactive attention variants">
+    <div class="body">
+      <div class="meta"><span class="tag">[S.1]</span> <span class="me">Hankyul Kang</span>, Ming-Hsuan Yang, and Jongbin Ryu. <a href="https://arxiv.org/abs/2402.17507">Interactive Multi-Head Self-Attention with Linear Complexity</a>.<br><span class="venue">arXiv preprint, 2024</span></div>
+      <p class="kw">Keywords: &ldquo;multi-head self-attention, cross-head interaction, linear complexity, scalable architecture, real-world constraint optimization, runtime, memory&rdquo;</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Research Projects</h2>
+  <ul class="dated">
+    <li>
+      <div class="when">Mar 2026 – present</div>
+      <div class="what"><span class="tag" id="p-p6">[P.6]</span> Semiconductor Outlier Detection via Image Generation<div class="note"><a href="http://www.semics.com/en/index.php">SEMICS</a> (semiconductor inspection equipment and wafer probers)</div></div>
+    </li>
+    <li>
+      <div class="when">Jul 2023 – Jun 2024</div>
+      <div class="what"><span class="tag" id="p-p5">[P.5]</span> Real-Time Object-Detection Transformer for Autonomous Driving<div class="note"><a href="https://42dot.ai/en">42dot</a> (AI mobility company)</div></div>
+    </li>
+    <li>
+      <div class="when">Jul 2023 – Jun 2024</div>
+      <div class="what"><span class="tag" id="p-p4">[P.4]</span> Survival Prediction for Lymphoma<div class="note"><a href="https://eng.nia.or.kr/site/nia_eng/main.do">National Information Society Agency (NIA)</a></div></div>
+    </li>
+    <li>
+      <div class="when">Jul 2023 – Jun 2024</div>
+      <div class="what"><span class="tag" id="p-p3">[P.3]</span> Source-Free Domain Adaptation for Edge Face Recognition<div class="note"><a href="https://www.etri.re.kr/eng/main/main.etri">Electronics and Telecommunications Research Institute (ETRI)</a></div></div>
+    </li>
+    <li>
+      <div class="when">Jul 2022 – Jun 2023</div>
+      <div class="what"><span class="tag" id="p-p2">[P.2]</span> Lymphoma Recognition from 3D Computed Tomography<div class="note"><a href="https://eng.nia.or.kr/site/nia_eng/main.do">National Information Society Agency (NIA)</a></div></div>
+    </li>
+    <li>
+      <div class="when">Jul 2021 – Jun 2022</div>
+      <div class="what"><span class="tag" id="p-p1">[P.1]</span> Masked Face Recognition with Domain Adaptation<div class="note"><a href="https://www.etri.re.kr/eng/main/main.etri">Electronics and Telecommunications Research Institute (ETRI)</a></div></div>
+    </li>
+  </ul>
+</section>
+
+</body>
+</html>
