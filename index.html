@@ -242,7 +242,7 @@
   <p>I am interested in advancing the frontiers of state-of-the-art algorithms to achieve breakthrough performance. My expertise lies in improving efficiency through architectures, compression, and learning algorithms for vision models and large language models. My work spans four directions:</p>
   <ul>
     <li><b>Efficient architecture</b>: linear attention <a href="#p-imhsa">[S.1]</a> and multi-token attention <a href="#p-map">[C.1]</a>.</li>
-    <li><b>Model compression</b>: quantization and pruning <a href="#p-svq">[C.3]</a>, and slimmable networks <a href="#p-plugdec">[S.3]</a>.</li>
+    <li><b>Model compression</b>: quantization and pruning <a href="#p-svq">[C.3]</a>, slimmable networks <a href="#p-plugdec">[S.3]</a>, and speculative decoding <a href="#p-loadmatch">[S.6]</a>.</li>
     <li><b>On-device learning</b>: continual learning <a href="#p-respacing">[C.2]</a> <a href="#p-aux">[S.4]</a>, and resource-efficient fine-tuning <a href="#p-lema">[S.5]</a>.</li>
     <li><b>AI applications</b>: medical imaging <a href="#p-adnet">[J.1]</a> <a href="#p-p2">[P.2]</a> <a href="#p-p4">[P.4]</a>, and face recognition <a href="#p-p1">[P.1]</a> <a href="#p-p3">[P.3]</a>.</li>
   </ul>
@@ -424,6 +424,14 @@
 
 <section id="preprints">
   <h2>Working Papers</h2>
+  <div class="pub" id="p-loadmatch">
+    <img src="images/loadmatch.webp" width="240" height="185" alt="Token throughput comparison on GPQA and GSM8K across five quantized model configurations" loading="lazy" decoding="async">
+    <div class="body">
+      <div class="meta"><span class="tag">[S.6]</span> Anonymous Authors. LoadMatch: Balancing Memory and Compute Load in Quantized Models Using Speculative Decoding.<br><span class="venue">Working paper</span></div>
+      <p class="kw">Keywords: &ldquo;quantized models, speculative decoding, memory bandwidth, compute load balancing, inference throughput&rdquo;</p>
+    </div>
+  </div>
+
   <div class="pub" id="p-lema">
     <img src="images/lema.webp" width="240" height="185" alt="Conceptual illustration of the QLoRA learning trajectory drifting away from the stable optimal region" loading="lazy" decoding="async">
     <div class="body">
