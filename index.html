@@ -182,12 +182,20 @@
   .pub:first-of-type { padding-top: 4px; }
 
   .pub-year {
-    margin: 26px 0 6px;
-    padding-bottom: 4px;
-    color: #555;
-    font-size: var(--fs);
-    font-weight: 400;
-    line-height: 1.75;
+    margin: 32px 0 10px;
+    padding: 0;
+    color: var(--ink);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+  }
+
+  .pub-year::before {
+    content: "#";
+    margin-right: 0.5ch;
+    color: var(--link);
+    font: inherit;
   }
 
   .pub-year:first-of-type { margin-top: 8px; }
@@ -445,7 +453,7 @@
 
 <section id="publications">
   <h2>Publications <span class="note">(C: conference, J: journal, S: submission or preprint)</span></h2>
-  <h3 class="pub-year"># 2026</h3>
+  <h3 class="pub-year">2026</h3>
   <div class="pub" id="p-svq">
     <div class="pub-figure"><span class="venue-tag">NeurIPS</span><img src="images/svq.webp" width="240" height="185" alt="Sequential pruning-then-quantization compared with differentiable bit-width co-optimization" loading="lazy" decoding="async"></div>
     <div class="body">
@@ -537,7 +545,7 @@
     </div>
   </div>
 
-  <h3 class="pub-year"># 2025</h3>
+  <h3 class="pub-year">2025</h3>
   <div class="pub" id="p-respacing">
     <div class="pub-figure"><span class="venue-tag">CVPR</span><img src="images/respacing.webp" width="240" height="185" alt="Forgetting curves for short-term, optimal, and long-term recall intervals" loading="lazy" decoding="async"></div>
     <div class="body">
@@ -564,7 +572,7 @@
     </div>
   </div>
 
-  <h3 class="pub-year"># 2024</h3>
+  <h3 class="pub-year">2024</h3>
   <div class="pub" id="p-adnet">
     <div class="pub-figure"><span class="venue-tag">CMPB</span><img src="images/adnet.webp" width="240" height="185" alt="U-Net with a deconvolution decoder compared with ADNet's attentional decoder and harmonic pooling" loading="lazy" decoding="async"></div>
     <div class="body">
