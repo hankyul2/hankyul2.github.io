@@ -184,7 +184,6 @@
   .pub-year {
     margin: 26px 0 6px;
     padding-bottom: 4px;
-    border-bottom: 1px solid var(--rule);
     color: #555;
     font-size: var(--fs);
     font-weight: 400;
@@ -250,10 +249,19 @@
     min-width: 68px;
     padding: 1px 12px;
     border: 1px solid var(--ink);
+    background: #fff;
     color: var(--ink);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: var(--fs);
     line-height: 1.5;
     text-align: center;
     text-decoration: none;
+  }
+
+  .pub-action[aria-expanded="true"] {
+    background: var(--ink);
+    color: #fff;
   }
 
   .pub-action.disabled {
@@ -265,6 +273,13 @@
   .summary-label { font-weight: 600; }
 
   .tldr, .highlight, .keywords { color: #555; }
+
+  .highlight {
+    display: none;
+    margin-top: 8px;
+  }
+
+  .highlight.is-open { display: block; }
 
   .venue { color: #555; }
 
@@ -593,6 +608,33 @@
   <h2>Academic Service</h2>
   <p>Reviewer: CVPR · ECCV · NeurIPS · BMVC</p>
 </section>
+
+<script>
+  document.querySelectorAll("#publications .pub").forEach((publication, index) => {
+    const actions = publication.querySelector(".pub-actions");
+    const highlight = publication.querySelector(".highlight");
+
+    if (!actions || !highlight) return;
+
+    const highlightId = `publication-highlight-${index + 1}`;
+    highlight.id = highlightId;
+    actions.insertAdjacentElement("afterend", highlight);
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "pub-action";
+    button.textContent = "HIGHLIGHT";
+    button.setAttribute("aria-controls", highlightId);
+    button.setAttribute("aria-expanded", "false");
+
+    button.addEventListener("click", () => {
+      const isOpen = highlight.classList.toggle("is-open");
+      button.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    actions.appendChild(button);
+  });
+</script>
 
 </body>
 </html>
