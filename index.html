@@ -254,14 +254,16 @@
   }
 
   .pub-action {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     min-width: 0;
     padding: 0 8px;
     border: 1px solid var(--ink);
     background-color: #fff;
-    background-image: linear-gradient(var(--link), var(--link));
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: 100% 0;
     color: var(--ink);
     cursor: pointer;
     font-family: inherit;
@@ -269,16 +271,67 @@
     line-height: 1.35;
     text-align: center;
     text-decoration: none;
-    transition: background-size 160ms ease-out, border-color 160ms ease-out, color 160ms ease-out;
+    transition: border-color 220ms ease-out, color 220ms ease-out;
     white-space: nowrap;
   }
 
   .pub-action:not(.disabled):hover,
   .pub-action:not(.disabled):focus-visible {
-    background-size: 100% 100%;
     border-color: var(--link);
     color: #fff;
     outline: none;
+  }
+
+  .pub-action-label {
+    position: relative;
+    z-index: 2;
+  }
+
+  .matrix-rain {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .matrix-rain::before {
+    position: absolute;
+    inset: 0;
+    background: var(--link);
+    content: "";
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 220ms ease-out;
+  }
+
+  .pub .body .matrix-column {
+    position: absolute;
+    top: -34px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 6px;
+    line-height: 6px;
+    opacity: 0;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.7);
+    transform: translateY(-8px);
+    writing-mode: vertical-rl;
+  }
+
+  .pub-action:not(.disabled):hover .matrix-rain::before,
+  .pub-action:not(.disabled):focus-visible .matrix-rain::before {
+    transform: scaleY(1);
+  }
+
+  .pub-action:not(.disabled):hover .matrix-column,
+  .pub-action:not(.disabled):focus-visible .matrix-column {
+    animation: matrix-fall 420ms linear var(--rain-delay) both;
+  }
+
+  @keyframes matrix-fall {
+    0% { opacity: 0; transform: translateY(-8px); }
+    18% { opacity: 1; }
+    75% { opacity: 0.65; }
+    100% { opacity: 0; transform: translateY(66px); }
   }
 
   .pub-action[aria-expanded="true"] {
@@ -333,6 +386,8 @@
 
   @media (prefers-reduced-motion: reduce) {
     .pub-action { transition: none; }
+    .matrix-rain::before { transition: none; }
+    .matrix-column { animation: none !important; }
   }
 </style>
 </head>
@@ -659,6 +714,31 @@
     });
 
     actions.appendChild(button);
+
+    actions.querySelectorAll(".pub-action:not(.disabled)").forEach((action) => {
+      const label = document.createElement("span");
+      label.className = "pub-action-label";
+      label.textContent = action.textContent;
+
+      const rain = document.createElement("span");
+      rain.className = "matrix-rain";
+      rain.setAttribute("aria-hidden", "true");
+
+      const glyphs = ["01ﾊﾐ", "ﾋｰ10", "ｳｼ01", "ﾅﾓ10", "ﾆｻ01", "ﾜﾂ10", "0ﾊ1ﾐ", "ﾋ1ｰ0", "ｳ0ｼ1", "ﾅ1ﾓ0"];
+      const delays = [0, 55, 18, 72, 30, 8, 64, 24, 80, 42];
+
+      glyphs.forEach((text, columnIndex) => {
+        const column = document.createElement("span");
+        column.className = "matrix-column";
+        column.textContent = text;
+        column.style.left = `${columnIndex * 10 + 4}%`;
+        column.style.setProperty("--rain-delay", `${delays[columnIndex]}ms`);
+        rain.appendChild(column);
+      });
+
+      action.textContent = "";
+      action.append(rain, label);
+    });
   });
 </script>
 
