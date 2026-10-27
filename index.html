@@ -250,9 +250,10 @@
     padding: 0 8px;
     border: 1px solid var(--ink);
     background-color: #fff;
-    background-image: linear-gradient(90deg, var(--link) 0 50%, transparent 50% 100%);
-    background-position: 100% 0;
-    background-size: 200% 100%;
+    background-image: linear-gradient(var(--link), var(--link));
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 0 100%;
     color: var(--ink);
     cursor: pointer;
     font-family: inherit;
@@ -260,13 +261,13 @@
     line-height: 1.35;
     text-align: center;
     text-decoration: none;
-    transition: background-position 160ms ease-out, border-color 160ms ease-out, color 160ms ease-out;
+    transition: background-size 160ms ease-out, border-color 160ms ease-out, color 160ms ease-out;
     white-space: nowrap;
   }
 
   .pub-action:not(.disabled):hover,
   .pub-action:not(.disabled):focus-visible {
-    background-position: 0 0;
+    background-size: 100% 100%;
     border-color: var(--link);
     color: #fff;
     outline: none;
