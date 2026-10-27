@@ -420,7 +420,7 @@
       <div class="authors"><span class="me">Hankyul Kang</span> and Jongbin Ryu.</div>
       <div class="venue">Advances in Neural Information Processing Systems, 2026</div>
       <div class="tldr"><span class="summary-label">TL;DR:</span> Co-optimizes pruning and quantization through differentiable bit-width selection for efficient LLM compression.</div>
-      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished ultra-efficient LLM compression as measured by memory footprint and inference throughput by jointly optimizing SVD pruning and differentiable bit-width quantization.</div>
+      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished up to 7.5× model compression and 2.8× end-to-end speedup as measured on LLaMA-family benchmarks at 1.61-bit precision by co-optimizing SVD pruning and quantization.</div>
       <div class="keywords"><span class="summary-label">Keywords:</span> LLM compression · pruning · quantization</div>
       <div class="pub-actions"><a class="pub-action" href="https://arxiv.org/pdf/2610.06026">PDF</a><a class="pub-action" href="https://github.com/MMAI-Laboratory/DBW">CODE</a></div>
     </div>
@@ -433,7 +433,7 @@
       <div class="authors"><span class="me">Hankyul Kang</span> and Jongbin Ryu.</div>
       <div class="venue">Preprint, 2026</div>
       <div class="tldr"><span class="summary-label">TL;DR:</span> Balances memory traffic and computation in quantized models through speculative decoding.</div>
-      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished balanced quantized-model inference as measured by tokens per second by pairing quantized target models with speculative decoding.</div>
+      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished an 8.8× end-to-end decoding speedup as measured against FP16 autoregressive greedy decoding on standard benchmarks by load-matching quantized inference with speculative decoding.</div>
       <div class="keywords"><span class="summary-label">Keywords:</span> quantized LLMs · speculative decoding · inference</div>
       <div class="pub-actions"><span class="pub-action disabled">PDF</span></div>
     </div>
@@ -446,7 +446,7 @@
       <div class="authors">Eunju Sin*, <span class="me">Hankyul Kang</span>*, and Jongbin Ryu.</div>
       <div class="venue">Preprint, 2026</div>
       <div class="tldr"><span class="summary-label">TL;DR:</span> Studies how LoRA adapters evolve when fine-tuning quantized language models.</div>
-      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished more stable quantized fine-tuning as measured by adapter trajectory consistency and downstream accuracy by analyzing and stabilizing LoRA learning trajectories.</div>
+      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished a 2.93-point MMLU gain as measured against QLoRA on LLaMA-7B by adaptively averaging LoRA states along the quantized fine-tuning trajectory.</div>
       <div class="keywords"><span class="summary-label">Keywords:</span> QLoRA · LoRA trajectory · quantized LLMs</div>
       <div class="pub-actions"><span class="pub-action disabled">PDF</span></div>
     </div>
@@ -459,7 +459,7 @@
       <div class="authors">Dooyeon Na*, <span class="me">Hankyul Kang</span>*, Byung Ok Han, and Jongbin Ryu.</div>
       <div class="venue">Preprint, 2026</div>
       <div class="tldr"><span class="summary-label">TL;DR:</span> Reduces temporal redundancy in VLA models for efficient multi-frame action generation.</div>
-      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished efficient multi-frame action generation as measured by task success rate and model size by streamlining VLA models and reducing temporal redundancy.</div>
+      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished 2.5× higher inference throughput and up to 3.3× lower training cost as measured against a multi-frame VLA baseline by sparsifying observations and action generation.</div>
       <div class="keywords"><span class="summary-label">Keywords:</span> VLA · multi-frame generation · efficient inference</div>
       <div class="pub-actions"><span class="pub-action disabled">PDF</span></div>
     </div>
@@ -472,7 +472,7 @@
       <div class="authors">Gregor Seifer*, <span class="me">Hankyul Kang</span>*, Donghyun Kim, and Jongbin Ryu.</div>
       <div class="venue">Preprint, 2026</div>
       <div class="tldr"><span class="summary-label">TL;DR:</span> Uses auxiliary data to maintain robust decision boundaries during continual learning.</div>
-      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished more robust continual-learning boundaries as measured by task accuracy and forgetting by using auxiliary data as neutral cases.</div>
+      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished a 12.97-point last top-1 accuracy gain as measured against ER on S-CIFAR-10 with a 500-sample buffer by using unlabeled auxiliary data as neutral cases.</div>
       <div class="keywords"><span class="summary-label">Keywords:</span> continual learning · auxiliary data · decision boundary</div>
       <div class="pub-actions"><span class="pub-action disabled">PDF</span></div>
     </div>
@@ -485,7 +485,7 @@
       <div class="authors"><span class="me">Hankyul Kang</span>, Eunju Sin, and Jongbin Ryu.</div>
       <div class="venue">Preprint, 2026</div>
       <div class="tldr"><span class="summary-label">TL;DR:</span> Adds a detachable decoder to adapt slimmable networks across heterogeneous devices.</div>
-      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished adaptable slimmable-network inference as measured by accuracy-latency trade-offs across devices by attaching a pluggable decoder.</div>
+      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished 8.55% better top-1 accuracy while using 27% of prior SOTA runtime as measured on ImageNet by attaching dedicated pluggable decoders to executable networks.</div>
       <div class="keywords"><span class="summary-label">Keywords:</span> slimmable networks · pluggable decoder · on-device AI</div>
       <div class="pub-actions"><span class="pub-action disabled">PDF</span></div>
     </div>
@@ -498,7 +498,7 @@
       <div class="authors">Zihao Ye, <span class="me">Hankyul Kang</span>, et al.</div>
       <div class="venue">arXiv preprint, 2026</div>
       <div class="tldr"><span class="summary-label">TL;DR:</span> Analyzes the techniques behind the winning solution of the 2025 low-power vision challenge.</div>
-      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished a reproducible analysis of winning low-power vision methods as measured by accuracy, latency, and energy by evaluating challenge solutions across deployment settings.</div>
+      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished 97.4% classification accuracy at 1.612 ms as measured on Snapdragon 8 Elite to win LPCVC Track 1 by merging layers and imitating the original features.</div>
       <div class="keywords"><span class="summary-label">Keywords:</span> low-power vision · model compression · mobile NPU</div>
       <div class="pub-actions"><a class="pub-action" href="https://arxiv.org/pdf/2604.19054">PDF</a><a class="pub-action" href="https://github.com/SoongE/LPCV2025_Track1_Winning_Solution">CODE</a></div>
     </div>
@@ -512,7 +512,7 @@
       <div class="authors"><span class="me">Hankyul Kang</span>, Gregor Seifer, Donghyun Lee, and Jongbin Ryu.</div>
       <div class="venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2025</div>
       <div class="tldr"><span class="summary-label">TL;DR:</span> Schedules learning and rest using forgetting curves to improve long-term continual learning.</div>
-      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished stronger long-term continual learning as measured by accuracy and forgetting by scheduling training and rest with forgetting curves.</div>
+      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished a 7.24-point average accuracy gain as measured against DER++ on DomainNet by scheduling replay intervals according to the forgetting curve.</div>
       <div class="keywords"><span class="summary-label">Keywords:</span> continual learning · forgetting curve · memory</div>
       <div class="pub-actions"><a class="pub-action" href="https://openaccess.thecvf.com/content/CVPR2025/papers/Kang_Do_Your_Best_and_Get_Enough_Rest_for_Continual_Learning_CVPR_2025_paper.pdf">PDF</a><a class="pub-action" href="https://github.com/hankyul2/ViewBatchModel">CODE</a></div>
     </div>
@@ -525,7 +525,7 @@
       <div class="authors"><span class="me">Hankyul Kang</span> and Jongbin Ryu.</div>
       <div class="venue">IEEE/CVF Winter Conference on Applications of Computer Vision, 2025</div>
       <div class="tldr"><span class="summary-label">TL;DR:</span> Replaces global pooling with multi-token attention for efficient broad-sight visual representations.</div>
-      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished efficient broad-sight recognition as measured by accuracy, throughput, and parameter overhead by replacing global pooling with multi-token attention.</div>
+      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished a 3.6-point ImageNet top-1 accuracy gain as measured against global average pooling on ResNet-50 (77.1%→80.7%) by aggregating local patterns with multi-token attention.</div>
       <div class="keywords"><span class="summary-label">Keywords:</span> multi-token attention · visual recognition · efficient networks</div>
       <div class="pub-actions"><a class="pub-action" href="https://openaccess.thecvf.com/content/WACV2025/papers/Kang_Enriching_Local_Patterns_with_Multi-Token_Attention_for_Broad-Sight_Neural_Networks_WACV_2025_paper.pdf">PDF</a><a class="pub-action" href="https://github.com/Lab-LVM/imagenet-models">CODE</a></div>
     </div>
@@ -539,7 +539,7 @@
       <div class="authors"><span class="me">Hankyul Kang</span>, Namkug Kim, and Jongbin Ryu.</div>
       <div class="venue">Computer Methods and Programs in Biomedicine, 2024</div>
       <div class="tldr"><span class="summary-label">TL;DR:</span> Uses attentional decoding and high-resolution features for efficient chest X-ray recognition.</div>
-      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished high-resolution chest X-ray recognition as measured by classification accuracy and computational efficiency by combining attentional decoding with harmonic pooling.</div>
+      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished 85.3% average AUROC and the best score on all 14 disease classes as measured on MIMIC-CXR by decoding high-resolution features with attentional upsampling and harmonic pooling.</div>
       <div class="keywords"><span class="summary-label">Keywords:</span> chest X-ray · attentional decoder · medical imaging</div>
       <div class="pub-actions"><a class="pub-action" href="https://doi.org/10.1016/j.cmpb.2024.108198">PDF</a><a class="pub-action" href="https://github.com/Lab-LVM/ADNet">CODE</a></div>
     </div>
@@ -552,7 +552,7 @@
       <div class="authors"><span class="me">Hankyul Kang</span>, Ming-Hsuan Yang, and Jongbin Ryu.</div>
       <div class="venue">arXiv preprint, 2024</div>
       <div class="tldr"><span class="summary-label">TL;DR:</span> Introduces cross-head interaction while retaining linear attention complexity.</div>
-      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished scalable attention modeling as measured by accuracy, runtime, and memory by enabling cross-head interaction with linear complexity.</div>
+      <div class="highlight"><span class="summary-label">Highlight:</span> Accomplished 79.1% ImageNet top-1 accuracy with 4.7G FLOPs as measured against softmax attention at 77.2% and 7.0G FLOPs by enabling cross-head interaction with linear complexity.</div>
       <div class="keywords"><span class="summary-label">Keywords:</span> linear attention · multi-head attention · efficient transformers</div>
       <div class="pub-actions"><a class="pub-action" href="https://arxiv.org/pdf/2402.17507">PDF</a></div>
     </div>
