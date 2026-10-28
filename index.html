@@ -105,7 +105,9 @@
     background: var(--link);
     box-shadow: 0 5px 14px rgba(0, 0, 0, 0.16);
     color: #fff;
-    white-space: nowrap;
+    width: max-content;
+    max-width: min(520px, calc(100vw - 40px));
+    text-align: center;
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
@@ -413,19 +415,20 @@
 <header>
   <div class="profile-photo" tabindex="0" aria-describedby="profile-greeting">
     <img class="photo" src="images/usa_maxico4.jpg" width="425" height="266" alt="Hankyul Kang" decoding="async" fetchpriority="high">
-    <span class="profile-greeting" id="profile-greeting" role="tooltip">Hello! My name is Hankyul Kang.</span>
+    <span class="profile-greeting" id="profile-greeting" role="tooltip">안녕하세요, 좋은 하루 보내세요! (Hi, have a good day!)</span>
   </div>
   <div>
     <h1>Hankyul Kang</h1>
     <div class="idline">Ph.D. Candidate, Department of Artificial Intelligence</div>
-    <div>Ajou University, Korea</div>
-    <div>hankyulkang at ajou.ac.kr</div>
+    <div>Ajou University, Korea 🇰🇷</div>
+    <div>✉ hankyulkang at ajou.ac.kr</div>
     <div>
       <a href="https://scholar.google.com/citations?user=k1ju5YIAAAAJ&amp;hl=en">Google Scholar</a> ·
       <a href="https://www.linkedin.com/in/hankyul-kang-85825b152/">LinkedIn</a> ·
       <a href="https://github.com/hankyul2">GitHub</a>
     </div>
     <div>NRF graduate research fellowship</div>
+    <div>Top reviewer for NeurIPS2026, Winner of CVPR Low-Power Computer Vision Challenge, Efficient AI</div>
   </div>
 </header>
 
