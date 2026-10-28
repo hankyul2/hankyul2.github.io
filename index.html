@@ -12,12 +12,12 @@
 <meta property="og:title" content="Hankyul Kang — AI Researcher">
 <meta property="og:description" content="Research in efficient architectures, model compression, on-device learning, and AI applications.">
 <meta property="og:url" content="https://hankyul2.github.io/">
-<meta property="og:image" content="https://hankyul2.github.io/images/profile.jpg">
+<meta property="og:image" content="https://hankyul2.github.io/images/usa_maxico4.jpg">
 <meta property="og:image:alt" content="Portrait of Hankyul Kang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hankyul Kang — AI Researcher">
 <meta name="twitter:description" content="Research in efficient architectures, model compression, on-device learning, and AI applications.">
-<meta name="twitter:image" content="https://hankyul2.github.io/images/profile.jpg">
+<meta name="twitter:image" content="https://hankyul2.github.io/images/usa_maxico4.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
@@ -81,15 +81,17 @@
   }
 
   .photo {
-    flex: 0 0 132px;
-    height: 168px;
-    border: 1px solid var(--rule);
+    flex: 0 0 auto;
+    width: 425px;
+    height: auto;
+    max-width: 100%;
+    border: 0;
   }
 
-  /* photo file: site/images/profile.jpg */
+  /* Keep the profile photo at its original aspect ratio. */
   img.photo {
-    object-fit: cover;
-    object-position: 50% 26%;   /* frame the face, not the poster */
+    object-fit: contain;
+    object-position: center;
   }
 
   .idline { margin-top: 2px; }
@@ -362,7 +364,7 @@
 <body>
 
 <header>
-  <img class="photo" src="images/profile.webp" width="132" height="168" alt="Hankyul Kang" decoding="async" fetchpriority="high">
+  <img class="photo" src="images/usa_maxico4.jpg" width="425" height="266" alt="Hankyul Kang" decoding="async" fetchpriority="high">
   <div>
     <h1>Hankyul Kang</h1>
     <div class="idline">Ph.D. Candidate, Department of Artificial Intelligence</div>
