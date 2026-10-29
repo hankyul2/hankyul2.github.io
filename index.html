@@ -62,6 +62,19 @@
     line-height: 1;
   }
 
+  .name-line {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    column-gap: 14px;
+    row-gap: 4px;
+  }
+
+  .header-email {
+    line-height: 1;
+    white-space: nowrap;
+  }
+
   a {
     color: var(--link);
     text-decoration: underline;
@@ -425,16 +438,19 @@
     <span class="profile-greeting" id="profile-greeting" role="tooltip">안녕하세요, 좋은 하루 보내세요! (Hi, have a good day!)</span>
   </div>
   <div>
-    <h1>Hankyul Kang</h1>
+    <div class="name-line">
+      <h1>Hankyul Kang</h1>
+      <div class="header-email">✉ hankyulkang at ajou.ac.kr</div>
+    </div>
     <div class="idline">Ph.D. Candidate, Department of Artificial Intelligence</div>
     <div>Ajou University, Korea 🇰🇷</div>
-    <div>✉ hankyulkang at ajou.ac.kr</div>
     <div>
       <a href="https://scholar.google.com/citations?user=k1ju5YIAAAAJ&amp;hl=en">Google Scholar</a> ·
       <a href="https://www.linkedin.com/in/hankyul-kang-85825b152/">LinkedIn</a> ·
       <a href="https://github.com/hankyul2">GitHub</a>
     </div>
     <div class="profile-highlights">
+      <div>Author of MAP (WACV'25), VBM (CVPR'25), DBW (NeurIPS'26)</div>
       <div>Recipient of NRF graduate research fellowship</div>
       <div>Honoree of NeurIPS'26 top reviewer</div>
       <div>Winner of CVPR'25 LPCV challenge</div>
