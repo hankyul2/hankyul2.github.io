@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20">
+  <rect x=".25" y=".25" width="29.5" height="19.5" rx=".7" fill="#fff" stroke="#c7c7c7" stroke-width=".5"/>
+  <g fill="none" stroke="#111" stroke-width="1.15" stroke-linecap="square">
+    <g transform="translate(6.2 4.8) rotate(-34)">
+      <path d="M-3-1.5h6M-3 0h6M-3 1.5h6"/>
+    </g>
+    <g transform="translate(23.8 15.2) rotate(-34)">
+      <path d="M-3-1.5h2M1-1.5h2M-3 0h2M1 0h2M-3 1.5h2M1 1.5h2"/>
+    </g>
+    <g transform="translate(23.8 4.8) rotate(34)">
+      <path d="M-3-1.5h2M1-1.5h2M-3 0h6M-3 1.5h2M1 1.5h2"/>
+    </g>
+    <g transform="translate(6.2 15.2) rotate(34)">
+      <path d="M-3-1.5h6M-3 0h2M1 0h2M-3 1.5h6"/>
+    </g>
+  </g>
+  <g transform="translate(15 10) rotate(-34)">
+    <circle r="4.1" fill="#0047a0"/>
+    <path d="M-4.1 0a4.1 4.1 0 0 1 8.2 0A2.05 2.05 0 0 0 0 0a2.05 2.05 0 0 1-4.1 0Z" fill="#cd2e3a"/>
+  </g>
+</svg>
